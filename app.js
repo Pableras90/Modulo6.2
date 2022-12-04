@@ -2,7 +2,7 @@ var plainAlphabet = "abcdefghijklmnopqrstuvwxyz:()!¡,'";
 var encryptedAlphabet = "qw,ert(yuio'pa:sdfg!hjklz¡xcv)bnm";
 
 var text = "pableras"
-
+var encrypt = "sqw'rfqg"
 
 
 //Funcion para coger cada letra del array y devolver su posicion en el indice
@@ -17,9 +17,10 @@ var searchString = (array, value) => {   //De este array me busque esta letra
 
 
 //console.log(searchString(encryptedAlphabet, "m"))
-var tranformLetter = (letter) => {
+var encryptLetter = (letter) => {
+    var letterLow = letter.toLowerCase();
     var resultLetter = "";
-    for (var i = 0; i < letter.length; i++) {
+    for (var i = 0; i < letterLow.length; i++) {
         var letterIndex = searchString(plainAlphabet, text[i]);
         if (letterIndex > -1) {
             resultLetter = resultLetter + encryptedAlphabet[letterIndex];
@@ -31,21 +32,35 @@ var tranformLetter = (letter) => {
     return resultLetter;
 }
 
-console.log(tranformLetter(text));
+console.log(encryptLetter(text));
 
-/*var searchEncrypted = (message) => {
-    var messageLowerCase = message.toLowerCase();
-    var resultMessage = "";
 
-    for (var index = 0; index < message.length; index++) {   //Iteras por las letras del mensaje
-        resultMessage = result + tranformLetter(letter); //Devuelve el valor(posicion en el array) del mensaje(text) en el alfabeto plainAlphabet
+var desencryptLetter = (letter) => {
+    var letterLow = letter.toLowerCase();
+    var resultLetter = "";
+    for (var i = 0; i < letterLow.length; i++) {
+        var letterIndex = searchString(encryptedAlphabet, encrypt[i]);
+        if (letterIndex > -1) {
+            resultLetter = resultLetter + plainAlphabet[letterIndex];
+        } else {
+            resultLetter = resultLetter + letter[i];
+        }
     }
 
-};
+    return resultLetter;
+}
 
-searchEncrypted(text);*/
+console.log(desencryptLetter(encrypt));
 
 
+var textEncrypted = document.getElementById('Cuadro1').innerHTML;
+
+var textTraduction = document.getElementById("encrypt").addEventListener("click", () => encryptLetter(textEncrypted));
+
+console.log(textEncrypted);
+
+
+document.getElementById('Cuadro2').addEventListener("click", textTraduction);
 
 
 
