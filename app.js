@@ -15,31 +15,25 @@ var searchString = (array, value) => {   //De este array me busque esta letra
 };
 
 
-
-//console.log(searchString(encryptedAlphabet, "m"))
-var encryptLetter = (letter) => {
+function encryptLetter(letter) {
     var letterLow = letter.toLowerCase();
     var resultLetter = "";
     for (var i = 0; i < letterLow.length; i++) {
-        var letterIndex = searchString(plainAlphabet, text[i]);
+        var letterIndex = searchString(plainAlphabet, letterLow[i]);
         if (letterIndex > -1) {
             resultLetter = resultLetter + encryptedAlphabet[letterIndex];
         } else {
             resultLetter = resultLetter + letter[i];
         }
     }
-
     return resultLetter;
 }
 
-console.log(encryptLetter(text));
-
-
-var desencryptLetter = (letter) => {
+function desencryptLetter(letter) {
     var letterLow = letter.toLowerCase();
     var resultLetter = "";
     for (var i = 0; i < letterLow.length; i++) {
-        var letterIndex = searchString(encryptedAlphabet, encrypt[i]);
+        var letterIndex = searchString(encryptedAlphabet, letterLow[i]);
         if (letterIndex > -1) {
             resultLetter = resultLetter + plainAlphabet[letterIndex];
         } else {
@@ -50,17 +44,16 @@ var desencryptLetter = (letter) => {
     return resultLetter;
 }
 
-console.log(desencryptLetter(encrypt));
+document.getElementById("encrypt").addEventListener("click", () => {
+    var encrypted = encryptLetter(document.getElementById('Cuadro1').value);
+    document.getElementById('Cuadro2').value = encrypted;
+});
 
+document.getElementById("desencrypt").addEventListener("click", () => {
+    var desencrypted = desencryptLetter(document.getElementById('Cuadro2').value);
+    document.getElementById('Cuadro1').value = desencrypted;
+});
 
-var textEncrypted = document.getElementById('Cuadro1').innerHTML;
-
-var textTraduction = document.getElementById("encrypt").addEventListener("click", () => encryptLetter(textEncrypted));
-
-console.log(textEncrypted);
-
-
-document.getElementById('Cuadro2').addEventListener("click", textTraduction);
 
 
 
