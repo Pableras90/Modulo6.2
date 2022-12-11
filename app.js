@@ -55,11 +55,29 @@ document.getElementById("desencrypt").addEventListener("click", () => {
 });
 
 
+//Texto traducido
+//¡lo has conseguido! puedes vacilar a tus compañeros escribiendo por el chat: '¡soy la leche, turing fliparia conmigo!' y a continuacion envia un mensaje cifrado, ¡el que tu quieras!
 
 
 
+//Opcional
+
+/*const eliminaDuplicados = (arr) => {
+    return arr.filter((valor, indice) => {
+        return arr.indexOf(valor) === indice;
+    });
+}*/
+
+function randomPick(n, min, max) {
+    var array = [];
+    var range = max - min + 1;
+    for (var i = 0; i < n; i++) {
+        array[i] = Math.floor(Math.random() * range) + min;
+    }
+    return array;
+};
 
 
 
-
+console.log(randomPick(10, 50, 60));
 
