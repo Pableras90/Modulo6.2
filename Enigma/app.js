@@ -1,8 +1,7 @@
 var plainAlphabet = "abcdefghijklmnopqrstuvwxyz:()!¡,'";
 var encryptedAlphabet = "qw,ert(yuio'pa:sdfg!hjklz¡xcv)bnm";
 
-var text = "pableras"
-var encrypt = "sqw'rfqg"
+
 
 
 //Funcion para coger cada letra del array y devolver su posicion en el indice
@@ -58,14 +57,6 @@ document.getElementById("desencrypt").addEventListener("click", () => {
 //Texto traducido
 //¡lo has conseguido! puedes vacilar a tus compañeros escribiendo por el chat: '¡soy la leche, turing fliparia conmigo!' y a continuacion envia un mensaje cifrado, ¡el que tu quieras!
 
-
-
-//Opcional
-
-
-
-
-//Generador aleatorio
 
 
 
