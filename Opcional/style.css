@@ -1,0 +1,16 @@
+h1 {
+    text-align: center;
+}
+
+
+
+.text {
+    width: 400px;
+    height: 100px;
+    border: 2px solid #493b86;
+}
+
+body {
+    width: 300px;
+    margin: 0 auto;
+}

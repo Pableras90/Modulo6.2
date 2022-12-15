@@ -67,29 +67,5 @@ document.getElementById("desencrypt").addEventListener("click", () => {
 
 //Generador aleatorio
 
-const eliminaDuplicados = (arr) => {
-    return arr.filter((valor, indice) => {
-        return arr.indexOf(valor) === indice;
-    });
-}
 
-
-
-
-function randomPick(n, min, max) {
-    var array = [];
-    var range = max - min + 1;
-    for (var i = 0; i < n; i++) {
-        for (var j = 1; i < n; i++)
-        array[i] = Math.floor(Math.random() * range) + min;
-            if (array[i] == array[j]) {
-                eliminaDuplicados(array[i])
-            }
-    }
-    return array;
-};
-
-
-
-console.log(randomPick(10, 50, 60));
 
